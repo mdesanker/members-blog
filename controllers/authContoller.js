@@ -80,7 +80,7 @@ exports.loginGet = function (req, res, next) {
 
 // Display log in on POST
 exports.loginPost = passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/home",
   failureRedirect: "/",
 });
 
