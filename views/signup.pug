@@ -6,16 +6,16 @@ block content
   form(action="" method="POST") 
     .form-group 
       label(for="first") First Name 
-      input(type="text" name="first" placeholder="First Name")
+      input(type="text" name="first" placeholder="First Name" value=(user === undefined ? "" : user.first))
     .form-group 
       label(for="last") Last Name 
-      input(type="text" name="last" placeholder="Last Name") 
+      input(type="text" name="last" placeholder="Last Name" value=(user === undefined ? "" : user.last)) 
     .form-group 
       label(for="email") Email 
-      input(type="email" name="email" placeholder="Email")
+      input(type="email" name="email" placeholder="Email" value=(user === undefined ? "" : user.email))
     .form-group 
       label(for="username") Username 
-      input(type="text" name="username" placeholder="Username")
+      input(type="text" name="username" placeholder="Username" value=(user === undefined ? "" : user.username))
     .form-group 
       label(for="password") Password 
       input(type="password" name="password" placeholder="Password")

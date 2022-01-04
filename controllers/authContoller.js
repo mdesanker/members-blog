@@ -34,7 +34,11 @@ exports.signupPost = [
 
     if (!errors.isEmpty()) {
       // Render form again if errors
-      res.render("signup", { title: "Sign Up", errors: errors.array() });
+      res.render("signup", {
+        title: "Sign Up",
+        user: req.body,
+        errors: errors.array(),
+      });
       return;
     } else {
       // Inputs are valid
