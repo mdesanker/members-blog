@@ -13,6 +13,6 @@ router.post("/signup", authController.signupPost);
 router.get("/login", authController.loginGet);
 
 // Post log in page
-router.get("/login", authController.signupPost);
+router.post("/login", authController.loginPost);
 
 module.exports = router;

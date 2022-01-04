@@ -2,6 +2,7 @@ const User = require("../models/user");
 
 const async = require("async");
 const { body, validationResult } = require("express-validator");
+const passport = require("passport");
 
 // Display sign up form on GET
 exports.signupGet = function (req, res, next) {
@@ -66,6 +67,7 @@ exports.loginGet = function (req, res, next) {
 };
 
 // Display log in on POST
-exports.loginPost = function (req, res, next) {
-  res.send("NOT IMPLEMENTED: Log in POST");
-};
+exports.loginPost = passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/",
+});
