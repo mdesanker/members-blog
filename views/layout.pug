@@ -9,15 +9,9 @@ html
         p Member's Blog 
       nav 
         ul 
-          if (!user)
-            li 
-              a(href="/auth/signup") Sign Up 
-            li 
-              a(href="/auth/login") Log In
-          else 
-            li 
-              a(href="/feed") Posts 
-            li 
-              a(href="/logout") Log Out  
+          li 
+            a(href="/auth/signup") Sign Up 
+          li 
+            a(href="/auth/login") Log In
     main
       block content
