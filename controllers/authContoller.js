@@ -51,7 +51,10 @@ exports.signupPost = [
         foundUser
       ) {
         if (err) next(err);
-        if (foundUser) res.redirect("/");
+        if (foundUser) {
+          res.redirect("/");
+          return;
+        }
 
         bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
           if (err) next(err);
