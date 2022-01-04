@@ -4,5 +4,20 @@ html
     title Member's Blog
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    header 
+      .logo 
+        p Member's Blog 
+      nav 
+        ul 
+          if (!user)
+            li 
+              a(href="/signup") Sign Up 
+            li 
+              a(href="/login") Log In
+          else 
+            li 
+              a(href="/feed") Posts 
+            li 
+              a(href="/logout") Log Out  
     main
       block content
