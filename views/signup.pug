@@ -1,0 +1,25 @@
+extends layout 
+
+block content 
+  h1= title 
+
+  form(action="" method="POST") 
+    .form-group 
+      label(for="first") First Name 
+      input(type="text" name="first" placeholder="First Name")
+    .form-group 
+      label(for="last") Last Name 
+      input(type="text" name="last" placeholder="Last Name") 
+    .form-group 
+      label(for="email") Email 
+      input(type="email" name="email" placeholder="Email")
+    .form-group 
+      label(for="username") Username 
+      input(type="text" name="username" placeholder="Username")
+    .form-group 
+      label(for="password") Password 
+      input(type="password" name="password" placeholder="Password")
+    .form-group 
+      label(for="confirmPassword") Confirm Password 
+      input(type="password" name="confirmPassword" placeholder="Password")    
+    button(type="submit") Sign Up

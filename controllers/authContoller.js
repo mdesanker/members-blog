@@ -3,7 +3,7 @@ const { body, validationResult } = require("express-validator");
 
 // Display sign up form on GET
 exports.signupGet = function (req, res, next) {
-  res.send("NOT IMPLEMENTED: Sign up GET");
+  res.render("signup", { title: "Sign Up" });
 };
 
 // Display sign up on POST
