@@ -19,9 +19,10 @@ exports.signupPost = [
     .isLength({ min: 7 })
     .withMessage("Password must be at least 7 characters")
     .escape(),
-  body("confirmPassword", "Must have same value as password field").custom(
-    (value, { req }) => value === req.body.password
-  ),
+  body(
+    "confirmPassword",
+    "Confirm password field must have same value as password field"
+  ).custom((value, { req }) => value === req.body.password),
 
   // Process request after validation and sanitization
   (req, res, next) => {
