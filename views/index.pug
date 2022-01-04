@@ -4,4 +4,5 @@ block content
   h1 Member's Blog
   p Welcome to the Member's Blog
 
-  p Current user: #{currentUser.username}
+  if (currentUser)
+    p Current user: #{currentUser.username}
