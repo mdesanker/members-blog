@@ -62,7 +62,7 @@ exports.signupPost = [
 
 // Display log in form on GET
 exports.loginGet = function (req, res, next) {
-  res.send("NOT IMPLEMENTED: Log in GET");
+  res.render("login", { title: "Log In" });
 };
 
 // Display log in on POST

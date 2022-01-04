@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+  h1= title
+
+  form(action="" method="POST")
+    .form-group 
+      label(for="username") Username 
+      input(type="text" name="username" placeholder="Username" value=(user === undefined ? "" : user.username))
+    .form-group 
+      label(for="password") Password 
+      input(type="password" name="password" placeholder="Password")
+    button(type="submit") Log In
