@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const bcrypt = require("bcryptjs");
 
 const async = require("async");
 const { body, validationResult } = require("express-validator");
@@ -51,10 +52,17 @@ exports.signupPost = [
         if (err) next(err);
         if (foundUser) res.redirect("/");
 
-        // Save new user
-        user.save(function (err) {
+        bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
           if (err) next(err);
-          res.redirect("/auth/login");
+
+          // Update user profile with hashed password
+          user.password = hashedPassword;
+
+          // Save new user
+          user.save(function (err) {
+            if (err) next(err);
+            res.redirect("/auth/login");
+          });
         });
       });
     }
