@@ -98,6 +98,12 @@ h1 {
   text-align: right;
 }
 
+.post-delete {
+  width: 100px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
 /* New Post */
 #content {
   font-size: 1rem;

@@ -20,4 +20,7 @@ block content
           .post-header
             p.post-author anon
         p.post-content= post.content
+
+        if currentUser.membership 
+          button.post-delete(type="button" data-id=(post._id)) DELETE
         
