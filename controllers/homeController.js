@@ -82,7 +82,10 @@ exports.membershipPost = [
 
     if (!errors.isEmpty()) {
       // If errors, render form again
-      res.render("membership", { title: "Apply for Membership" });
+      res.render("membership", {
+        title: "Apply for Membership",
+        errors: errors.array(),
+      });
       return;
     } else {
       console.log("PIN: ", process.env.PIN);
@@ -97,7 +100,13 @@ exports.membershipPost = [
             else res.redirect("/home");
           }
         );
-      } else res.redirect("/home");
+      } else {
+        res.render("membership", {
+          title: "Apply for Membership",
+          errors: ["Wrong PIN"],
+        });
+        return;
+      }
     }
   },
 ];

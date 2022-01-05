@@ -9,3 +9,8 @@ block content
     .form-group 
       input#pin(type="text" name="pin" maxlength="6") 
     button.btn(type="submit") Enter
+
+  if errors 
+    ul 
+      for error in errors 
+        li!= error
