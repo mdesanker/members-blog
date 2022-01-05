@@ -23,3 +23,13 @@ exports.homeGet = async function (req, res, next) {
     res.redirect("/");
   }
 };
+
+// Display new post form on GET
+exports.newPostGet = (req, res, next) => {
+  res.send("NOT IMPLEMENTED: New post GET");
+};
+
+// Create new post on POST
+exports.newPostPost = (req, res, next) => {
+  res.send("NOT IMPLEMENTED: New post POST");
+};
