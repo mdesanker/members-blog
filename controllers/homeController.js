@@ -65,7 +65,8 @@ exports.newPostPost = [
 
 // Display membership form on GET
 exports.membershipGet = (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Membership form GET");
+  // res.send("NOT IMPLEMENTED: Membership form GET");
+  res.render("membership", { title: "Apply for Membership" });
 };
 
 // Update membership on POST
