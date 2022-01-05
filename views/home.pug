@@ -9,10 +9,15 @@ block content
     for post in results.posts 
       li.post
         if (currentUser.membership)
-          p.post-header= post.author.username
+          .post-header
+            p.post-author= post.author.username
+            p.post-date= post.date_formatted
         else if post.author.username === currentUser.username 
-          p.post-header= post.author.username
+          .post-header
+            p.post-author= post.author.username
+            p.post-date= post.date_formatted
         else 
-          p.post-header anon
+          .post-header
+            p.post-author anon
         p.post-content= post.content
-        p.post-date= post.date_formatted
+        
