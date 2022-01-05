@@ -1,7 +1,9 @@
 const Post = require("../models/post");
+const User = require("../models/user");
 
 const async = require("async");
 const { body, validationResult } = require("express-validator");
+require("dotenv").config();
 
 // Display home page on GET
 exports.homeGet = async function (req, res, next) {
@@ -70,6 +72,32 @@ exports.membershipGet = (req, res, next) => {
 };
 
 // Update membership on POST
-exports.membershipPost = (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Membership form POST");
-};
+exports.membershipPost = [
+  // Validate and sanitize input
+  body("pin", "Pin is required").trim().isLength({ min: 6 }).escape(),
+
+  // Process request
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      // If errors, render form again
+      res.render("membership", { title: "Apply for Membership" });
+      return;
+    } else {
+      console.log("PIN: ", process.env.PIN);
+      // Check that pin is correct
+      if (req.body.pin === process.env.PIN) {
+        // PIN correct, update membership
+        User.findByIdAndUpdate(
+          req.user._id,
+          { membership: true },
+          function (err, result) {
+            if (err) next(err);
+            else res.redirect("/home");
+          }
+        );
+      } else res.redirect("/home");
+    }
+  },
+];
