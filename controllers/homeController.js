@@ -1,5 +1,8 @@
 // Display home page on GET
 exports.homeGet = function (req, res, next) {
-  // res.send("NOT IMPLEMENTED: Home page");
-  res.render("home", { title: "Post Feed" });
+  if (req.user) {
+    res.render("home", { title: "You are logged in" });
+  } else {
+    res.redirect("/");
+  }
 };
