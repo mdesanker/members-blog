@@ -26,7 +26,7 @@ exports.homeGet = async function (req, res, next) {
 
 // Display new post form on GET
 exports.newPostGet = (req, res, next) => {
-  res.send("NOT IMPLEMENTED: New post GET");
+  res.render("newPost", { title: "New Post" });
 };
 
 // Create new post on POST

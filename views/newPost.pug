@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+  h1= title 
+
+  form(action="" method="POST")
+    .form-group 
+      textarea#content(name="content", cols="50", rows="10" placeholder="Write your post here...")
+    button(type="submit") Post
