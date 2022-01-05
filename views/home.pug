@@ -2,14 +2,12 @@ extends layout
 
 block content 
   h1= title 
-  p There are currently #{results.postCount} posts
 
   a.btn(href="/home/newpost") Create a post
 
   ul 
     for post in results.posts 
-      li
-        .post 
-          p= post.author.username
-          p= post.content
-          p= post.date_formatted
+      li.post
+        p.post-header= post.author.username
+        p.post-content= post.content
+        p.post-date= post.date_formatted
