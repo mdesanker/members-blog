@@ -9,7 +9,7 @@ exports.homeGet = async function (req, res, next) {
   try {
     results = await async.parallel({
       posts: function (cb) {
-        Post.find({}, cb).sort({ date: 1 }).populate("author");
+        Post.find({}, cb).sort({ date: -1 }).populate("author");
       },
       postCount: function (cb) {
         Post.countDocuments({}, cb);
