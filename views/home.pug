@@ -8,6 +8,11 @@ block content
   ul 
     for post in results.posts 
       li.post
-        p.post-header= post.author.username
+        if (currentUser.membership)
+          p.post-header= post.author.username
+        else if post.author.username === currentUser.username 
+          p.post-header= post.author.username
+        else 
+          p.post-header anon
         p.post-content= post.content
         p.post-date= post.date_formatted

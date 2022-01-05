@@ -10,7 +10,9 @@ const PostSchema = new Schema({
 
 // Virtual for date formatted
 PostSchema.virtual("date_formatted").get(function () {
-  const day = DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_FULL);
+  const day = DateTime.fromJSDate(this.date).toLocaleString(
+    DateTime.DATE_SHORT
+  );
   const time = DateTime.fromJSDate(this.date).toLocaleString(
     DateTime.TIME_SIMPLE
   );
