@@ -123,3 +123,15 @@ h1 {
   text-align: center;
   margin: 1rem 0;
 }
+
+/* Error messages */
+.error-list {
+  padding-top: 1rem;
+}
+
+li.error {
+  list-style: none;
+  color: red;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
