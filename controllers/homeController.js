@@ -1,7 +1,24 @@
+const Post = require("../models/post");
+
+const async = require("async");
+
 // Display home page on GET
-exports.homeGet = function (req, res, next) {
+exports.homeGet = async function (req, res, next) {
+  let results;
+  try {
+    results = await async.parallel({
+      posts: function (cb) {
+        Post.find({}, cb).sort({ date: 1 }).populate("author");
+      },
+      postCount: function (cb) {
+        Post.countDocuments({}, cb);
+      },
+    });
+  } catch (err) {
+    return next(err);
+  }
   if (req.user) {
-    res.render("home", { title: "You are logged in" });
+    res.render("home", { title: "Posts", results: results });
   } else {
     res.redirect("/");
   }

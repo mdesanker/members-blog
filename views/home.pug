@@ -2,7 +2,7 @@ extends layout
 
 block content 
   h1= title 
-  p Welcome to the blog
+  p There are currently #{results.postCount} posts
 
   if (currentUser) 
     p Current user: #{currentUser.username}
