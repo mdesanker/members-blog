@@ -5,5 +5,7 @@ block content
 
   form(action="" method="POST")
     .form-group 
-      textarea#content(name="content", cols="50", rows="10" placeholder="Write your post here...")
+      textarea#content(name="content", cols="50", rows="10" maxlength="200" placeholder="Write your post here...")
     button(type="submit") Post
+
+  a(href="/home") Cancel 

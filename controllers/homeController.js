@@ -1,6 +1,7 @@
 const Post = require("../models/post");
 
 const async = require("async");
+const { body, validationResult } = require("express-validator");
 
 // Display home page on GET
 exports.homeGet = async function (req, res, next) {
@@ -30,6 +31,34 @@ exports.newPostGet = (req, res, next) => {
 };
 
 // Create new post on POST
-exports.newPostPost = (req, res, next) => {
-  res.send("NOT IMPLEMENTED: New post POST");
-};
+exports.newPostPost = [
+  // Validate and sanitize input
+  body("content", "You must type something")
+    .trim()
+    .isLength({ max: 200 })
+    .escape(),
+
+  // Process request after validation and sanitization
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    // Create new post object with input
+    const post = new Post({
+      author: req.user._id,
+      date: Date.now(),
+      content: req.body.content,
+    });
+
+    if (!errors.isEmpty()) {
+      // If errors, render form again
+      res.render("newPost", { title: "New Post", errors: errors.array() });
+      return;
+    } else {
+      // Save post to db
+      post.save(function (err) {
+        if (err) next(err);
+        res.redirect("/home");
+      });
+    }
+  },
+];
