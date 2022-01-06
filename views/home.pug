@@ -19,7 +19,7 @@ block content
         else 
           .post-header
             p.post-author anon
-        p.post-content= post.content
+        p.post-content !{post.content}
 
         if currentUser.membership 
           a.delete(href="/home/deletepost/" + post._id) delete 
