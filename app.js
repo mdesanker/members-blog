@@ -10,6 +10,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 const compression = require("compression");
 const helmet = require("helmet");
+const debug = require("debug")("app");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -23,9 +24,25 @@ const app = express();
 // Set up mongoose connection
 const mongoose = require("mongoose");
 const mongoDB = process.env.MONGODB_URI || process.env.Dev_DB_URL;
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error: "));
+// mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "MongoDB connection error: "));
+
+// Async/await connect to MongoDB
+const connectDB = async () => {
+  try {
+    await mongoose.connect(mongoDB, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    debug("MongoDB connected!!");
+  } catch (err) {
+    debug("Failed to connect to MongoDB: " + err);
+  }
+};
+
+connectDB();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
