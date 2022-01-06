@@ -8,6 +8,8 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
+const compression = require("compression");
+const helmet = require("helmet");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -28,6 +30,10 @@ db.on("error", console.error.bind(console, "MongoDB connection error: "));
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+
+//Compress all routes
+app.use(helmet());
+app.use(compression());
 
 app.use(logger("dev"));
 app.use(express.json());

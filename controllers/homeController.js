@@ -88,7 +88,6 @@ exports.membershipPost = [
       });
       return;
     } else {
-      console.log("PIN: ", process.env.PIN);
       // Check that pin is correct
       if (req.body.pin === process.env.PIN) {
         // PIN correct, update membership
