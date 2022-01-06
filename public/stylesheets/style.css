@@ -198,9 +198,6 @@ form {
 }
 
 /* Error messages */
-.error-list {
-  padding-top: 1rem;
-}
 
 li.error {
   list-style: none;

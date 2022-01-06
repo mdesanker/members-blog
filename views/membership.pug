@@ -9,13 +9,14 @@ block content
     form(action="" method="POST")
       .form-group 
         input#pin(type="password" name="pin" maxlength="6") 
+
+      if errors 
+        ul
+          for error in errors 
+            li.error!= error
+
       button.std-btn(type="submit") Enter
   else 
     p.member-alt-msg You are already a member
-
-  if errors 
-    ul.error-list 
-      for error in errors 
-        li.error!= error
   
   a.link(href="/home") Cancel 
