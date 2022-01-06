@@ -20,8 +20,6 @@ router.post("/membership", homeController.membershipPost);
 
 // Delete post on GET
 // router.get("/deletepost/:id", homeController.postDelete);
-router.get("/deletepost/:id", (req, res) =>
-  res.send("NOT IMPLEMENTED: Delete post GET")
-);
+router.get("/deletepost/:id", homeController.deletePost);
 
 module.exports = router;
