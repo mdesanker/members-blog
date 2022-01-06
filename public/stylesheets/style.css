@@ -141,6 +141,11 @@ h1 {
   margin: 1rem 0;
 }
 
+.member-alt-msg {
+  color: red;
+  padding: 1rem;
+}
+
 /* Error messages */
 .error-list {
   padding-top: 1rem;

@@ -5,12 +5,17 @@ block content
 
   p Enter the correct PIN to receive membership perks
 
-  form(action="" method="POST")
-    .form-group 
-      input#pin(type="text" name="pin" maxlength="6") 
-    button.btn(type="submit") Enter
+  if currentUser.membership === false
+    form(action="" method="POST")
+      .form-group 
+        input#pin(type="text" name="pin" maxlength="6") 
+      button.btn(type="submit") Enter
+  else 
+    p.member-alt-msg You are already a member
 
   if errors 
     ul.error-list 
       for error in errors 
         li.error!= error
+  
+  a.link-btn(href="/home") Cancel 
