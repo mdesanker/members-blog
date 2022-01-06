@@ -13,6 +13,13 @@ exports.signupGet = function (req, res, next) {
 // Display sign up on POST
 exports.signupPost = [
   // Validate and sanitize form inputs
+  body("first").trim().escape(),
+  body("last").trim().escape(),
+  body("email")
+    .isEmail()
+    .withMessage("Not a valid email address")
+    .trim()
+    .escape(),
   body("username", "Username required").trim().isLength({ min: 1 }).escape(),
   body("password", "Password required")
     .trim()
