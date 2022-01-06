@@ -9,7 +9,7 @@ block content
     form(action="" method="POST")
       .form-group 
         input#pin(type="password" name="pin" maxlength="6") 
-      button.btn(type="submit") Enter
+      button.std-btn(type="submit") Enter
   else 
     p.member-alt-msg You are already a member
 
@@ -18,4 +18,4 @@ block content
       for error in errors 
         li.error!= error
   
-  a.link-btn(href="/home") Cancel 
+  a.link(href="/home") Cancel 
