@@ -110,3 +110,9 @@ exports.membershipPost = [
     }
   },
 ];
+
+// Delete post on GET
+exports.deletePost = (req, res, next) => {
+  console.log(req.params.id);
+  res.redirect("/home");
+};

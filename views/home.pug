@@ -22,5 +22,6 @@ block content
         p.post-content= post.content
 
         if currentUser.membership 
-          button.post-delete(type="button" data-id=(post._id)) DELETE
+          a(href="/home/deletepost/" + post._id) DELETE 
+          //- button.post-delete(type="button" data-id=(post._id)) DELETE
         
