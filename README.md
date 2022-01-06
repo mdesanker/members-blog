@@ -2,6 +2,8 @@
 
 This is a blog app created with NodeJS and Express. Users can log in to write posts, but only select members can see the username of the author.
 
+Live demo [here](https://aqueous-savannah-91395.herokuapp.com/)
+
 ## How to set up
 
 ```bash
