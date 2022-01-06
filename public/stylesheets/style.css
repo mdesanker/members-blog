@@ -98,10 +98,14 @@ h1 {
   text-align: right;
 }
 
-.post-delete {
-  width: 100px;
-  align-self: flex-end;
-  cursor: pointer;
+.delete {
+  text-align: right;
+  text-decoration: none;
+  color: red;
+}
+
+.delete:hover {
+  text-decoration: underline;
 }
 
 /* New Post */
